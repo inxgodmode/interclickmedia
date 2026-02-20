@@ -3,8 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>Interclick Media | Premium Web, App & AI Studio</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <!-- === PRIMARY SEO METADATA === -->
+    <title>Interclick Media | Premium Web, App & AI Development Studio</title>
+    <meta name="description" content="Interclick Media is an enterprise-grade development studio. We architect and deploy high-performance web platforms, native mobile applications, and custom AI solutions.">
+    <meta name="keywords" content="Web Development, Mobile App Development, AI Integration, React, Next.js, iOS Apps, Android Apps, Enterprise Software, Singapore Tech Studio">
+    <meta name="author" content="Interclick Media Pte. Ltd.">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <link rel="canonical" href="https://www.interclickmedia.sg/">
+    
+    <!-- === OPEN GRAPH / FACEBOOK / LINKEDIN === -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.interclickmedia.sg/">
+    <meta property="og:title" content="Interclick Media | Premium Web, App & AI Studio">
+    <meta property="og:description" content="We design, architect, and deploy high-performance web platforms, native mobile applications, and intelligent AI workflows.">
+    <meta property="og:image" content="https://www.interclickmedia.sg/og-preview.jpg"> <!-- Ensure you upload an og-preview.jpg to your root folder -->
+    <meta property="og:site_name" content="Interclick Media">
+
+    <!-- === TWITTER CARDS === -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://www.interclickmedia.sg/">
+    <meta name="twitter:title" content="Interclick Media | Premium Web, App & AI Studio">
+    <meta name="twitter:description" content="We design, architect, and deploy high-performance web platforms, native mobile applications, and intelligent AI workflows.">
+    <meta name="twitter:image" content="https://www.interclickmedia.sg/og-preview.jpg">
+
+    <!-- === JSON-LD STRUCTURED DATA (GOOGLE RICH RESULTS) === -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Interclick Media Pte. Ltd.",
+      "url": "https://www.interclickmedia.sg/",
+      "logo": "https://www.interclickmedia.sg/logo.png",
+      "description": "Premium development studio specializing in scalable web platforms, native mobile applications, and applied AI integrations.",
+      "foundingDate": "2014",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Kaki Bukit Road 1",
+        "addressLocality": "Singapore",
+        "postalCode": "415934",
+        "addressCountry": "SG"
+      },
+      "identifier": {
+        "@type": "PropertyValue",
+        "name": "ACRA UEN",
+        "value": "201412591G"
+      },
+      "sameAs":,
+      "areaServed":,
+      "priceRange": "$$$"
+    }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <style>
         :root {
             --bg-color: #FAFAFA;
@@ -264,10 +320,10 @@
         @media (max-width: 900px) {
             .bento-grid { 
                 grid-template-columns: 1fr; 
-                grid-auto-rows: auto; /* Let cards size naturally on mobile */
+                grid-auto-rows: auto; 
             }
             .bento-card {
-                min-height: 320px; /* Prevent cards from getting too short */
+                min-height: 320px; 
             }
             .card-wide, .card-tall { 
                 grid-column: span 1; 
@@ -275,25 +331,14 @@
             }
             .nav-links { display: none; }
             
-            nav {
-                width: 92%; padding: 0 0.8rem 0 1.2rem; height: 55px;
-            }
+            nav { width: 92%; padding: 0 0.8rem 0 1.2rem; height: 55px; }
             
-            .hero-svg-container {
-                transform: rotateX(0deg) rotateY(0deg); /* Flatten 3D effect on small screens for better fit */
-            }
+            .hero-svg-container { transform: rotateX(0deg) rotateY(0deg); }
 
-            footer { 
-                flex-direction: column; 
-                align-items: flex-start; 
-                gap: 1.5rem; 
-            }
-            .footer-meta { 
-                align-items: flex-start; 
-            }
+            footer { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+            .footer-meta { align-items: flex-start; }
         }
         
-        /* For extremely small screens (iPhone SE, Galaxy Fold) */
         @media (max-width: 380px) {
             .logo { font-size: 0.9rem; }
             .btn-nav { padding: 0.5rem 0.8rem; font-size: 0.8rem; }
@@ -306,201 +351,212 @@
     <div class="ambient-bg"></div>
 
     <!-- Glass Navigation -->
-    <nav>
+    <nav aria-label="Main Navigation">
         <div class="logo">Interclick Media</div>
         <div class="nav-links">
-            <a href="#features">Platform</a>
-            <a href="#features">Capabilities</a>
+            <a href="#features" aria-label="Go to Platform Features">Platform</a>
+            <a href="#features" aria-label="Go to Capabilities">Capabilities</a>
         </div>
         <!-- Anti-Scraping WhatsApp Button -->
-        <a class="btn-nav wa-trigger">WhatsApp Us</a>
+        <a class="btn-nav wa-trigger" role="button" aria-label="Contact us on WhatsApp">WhatsApp Us</a>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="hero">
-        <div class="badge reveal">Enterprise-Grade Digital Studio</div>
-        <h1 class="reveal" style="transition-delay: 100ms;">
-            Engineering the <span class="text-gradient">Future</span> of Digital.
-        </h1>
-        <p class="reveal" style="transition-delay: 200ms;">
-            We design, architect, and deploy high-performance web platforms, native mobile applications, and intelligent AI workflows for modern enterprises.
-        </p>
-
-        <!-- Custom SVG Hero Dashboard Illustration -->
-        <div class="hero-visual reveal" style="transition-delay: 300ms;">
-            <div class="hero-svg-container">
-                <svg viewBox="0 0 800 400" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
-                    <rect x="20" y="20" width="760" height="360" rx="20" fill="rgba(255,255,255,0.6)" stroke="#E4E4E7" stroke-width="2" style="backdrop-filter: blur(20px);"/>
-                    <rect x="20" y="20" width="760" height="40" rx="20" fill="#F4F4F5"/>
-                    <rect x="20" y="40" width="760" height="20" fill="#F4F4F5"/>
-                    <circle cx="50" cy="40" r="6" fill="#D4D4D8"/><circle cx="70" cy="40" r="6" fill="#D4D4D8"/><circle cx="90" cy="40" r="6" fill="#D4D4D8"/>
-                    <rect x="60" y="90" width="200" height="250" rx="12" fill="#FFFFFF" stroke="#E4E4E7" stroke-width="1"/>
-                    <rect x="80" y="110" width="160" height="12" rx="6" fill="#E4E4E7"/>
-                    <rect x="80" y="135" width="100" height="8" rx="4" fill="#F4F4F5"/>
-                    <rect x="80" y="155" width="120" height="8" rx="4" fill="#F4F4F5"/>
-                    <circle cx="160" cy="240" r="50" stroke="url(#hero-gradient)" stroke-width="12" stroke-linecap="round" fill="none" stroke-dasharray="250" stroke-dashoffset="50"/>
-                    <rect x="290" y="90" width="450" height="140" rx="12" fill="#FFFFFF" stroke="#E4E4E7" stroke-width="1"/>
-                    <path d="M 310 190 Q 350 120 400 170 T 500 140 T 600 160 T 700 90" stroke="url(#hero-gradient)" stroke-width="4" fill="none" stroke-linecap="round"/>
-                    <circle cx="700" cy="90" r="6" fill="#7928CA"/>
-                    <rect x="290" y="250" width="215" height="90" rx="12" fill="#FFFFFF" stroke="#E4E4E7" stroke-width="1"/>
-                    <rect x="525" y="250" width="215" height="90" rx="12" fill="#FFFFFF" stroke="#E4E4E7" stroke-width="1"/>
-                    <defs>
-                        <linearGradient id="hero-gradient" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
-                            <stop stop-color="#0070F3"/><stop offset="1" stop-color="#7928CA"/>
-                        </linearGradient>
-                    </defs>
-                </svg>
-            </div>
-        </div>
-    </header>
-
-    <!-- Trust / Logos -->
-    <section class="trust-section reveal">
-        <div class="trust-text">Powering Next-Gen Infrastructure with our Parnets</div>
-        <div class="logo-ticker">
-            <span>Nvdia</span>
-            <span>Cloudflare</span>
-            <span>Vercel</span>
-            <span>Anthropic</span>
-            <span>OpenAI</span>
-        </div>
-    </section>
-
-    <!-- Bento Grid Features -->
-    <section id="features" class="features">
-        <div class="section-header reveal">
-            <h2>Our Capabilities</h2>
-            <p>Everything you need to scale, built with absolute precision.</p>
-        </div>
-
-        <div class="bento-grid">
+    <main>
+        <!-- Hero Section -->
+        <header class="hero">
+            <div class="badge reveal">Enterprise-Grade Digital Studio</div>
             
-            <!-- Web Card -->
-            <div class="bento-card card-wide reveal spotlight-card">
-                <div class="svg-visual">
-                    <svg viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="40" y="30" width="320" height="160" rx="12" fill="#FFFFFF" stroke="#E4E4E7" stroke-width="2" filter="drop-shadow(0 10px 15px rgba(0,0,0,0.05))"/>
-                        <rect x="40" y="30" width="320" height="30" rx="12" fill="#F4F4F5"/>
-                        <rect x="40" y="50" width="320" height="10" fill="#F4F4F5"/>
-                        <circle cx="60" cy="45" r="4" fill="#D4D4D8"/><circle cx="75" cy="45" r="4" fill="#D4D4D8"/><circle cx="90" cy="45" r="4" fill="#D4D4D8"/>
-                        <rect x="60" y="80" width="180" height="16" rx="8" fill="#E4E4E7"/>
-                        <rect x="60" y="110" width="100" height="8" rx="4" fill="#F4F4F5"/>
-                        <rect x="60" y="125" width="140" height="8" rx="4" fill="#F4F4F5"/>
-                        <rect x="60" y="150" width="80" height="24" rx="12" fill="#0070F3" opacity="0.9"/>
-                        <rect x="270" y="80" width="70" height="70" rx="12" fill="#F4F4F5"/>
-                    </svg>
-                </div>
-                <div class="card-content">
-                    <h3>High-Performance Web Platforms</h3>
-                    <p>Next.js and React architectures. We build SEO-optimized web applications that deliver sub-second load times and flawless user experiences.</p>
-                </div>
-            </div>
+            <!-- Highly SEO Optimized H1 Tag -->
+            <h1 class="reveal" style="transition-delay: 100ms;">
+                Engineering the <span class="text-gradient">Future</span> of Web, Apps & AI.
+            </h1>
+            
+            <p class="reveal" style="transition-delay: 200ms;">
+                We design, architect, and deploy high-performance web platforms, native mobile applications, and intelligent AI workflows for modern enterprises.
+            </p>
 
-            <!-- Mobile Card -->
-            <div class="bento-card reveal spotlight-card" style="transition-delay: 100ms;">
-                <div class="svg-visual">
-                    <svg viewBox="0 0 200 250" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="50" y="10" width="100" height="210" rx="20" fill="#FFFFFF" stroke="#111111" stroke-width="6" filter="drop-shadow(0 10px 15px rgba(0,0,0,0.1))"/>
-                        <rect x="85" y="15" width="30" height="6" rx="3" fill="#111111"/>
-                        <rect x="65" y="40" width="70" height="60" rx="10" fill="#F4F4F5"/>
-                        <rect x="65" y="115" width="70" height="20" rx="6" fill="#F4F4F5"/>
-                        <rect x="65" y="145" width="70" height="20" rx="6" fill="#F4F4F5"/>
-                        <circle cx="100" cy="190" r="12" fill="#0070F3" opacity="0.1"/>
-                        <circle cx="100" cy="190" r="4" fill="#0070F3"/>
-                    </svg>
-                </div>
-                <div class="card-content">
-                    <h3>Native Mobile Apps</h3>
-                    <p>Fluid iOS and Android experiences designed to retain users and dominate app stores.</p>
-                </div>
-            </div>
-
-            <!-- AI Card -->
-            <div class="bento-card reveal spotlight-card" style="transition-delay: 200ms;">
-                <div class="svg-visual">
-                    <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M100 60 L140 100 L100 140 L60 100 Z" stroke="url(#ai-grad)" stroke-width="2" stroke-dasharray="5 5" class="ai-path"/>
-                        <line x1="100" y1="20" x2="100" y2="60" stroke="#E4E4E7" stroke-width="2"/>
-                        <line x1="100" y1="140" x2="100" y2="180" stroke="#E4E4E7" stroke-width="2"/>
-                        <line x1="20" y1="100" x2="60" y2="100" stroke="#E4E4E7" stroke-width="2"/>
-                        <line x1="140" y1="100" x2="180" y2="100" stroke="#E4E4E7" stroke-width="2"/>
-                        <circle cx="100" cy="60" r="6" fill="#0070F3"/>
-                        <circle cx="140" cy="100" r="6" fill="#7928CA"/>
-                        <circle cx="100" cy="140" r="6" fill="#0070F3"/>
-                        <circle cx="60" cy="100" r="6" fill="#7928CA"/>
-                        <circle cx="100" cy="100" r="24" fill="rgba(121, 40, 202, 0.1)" stroke="#7928CA" stroke-width="1"/>
-                        <circle cx="100" cy="100" r="10" fill="url(#ai-grad)" filter="drop-shadow(0 0 8px rgba(121, 40, 202, 0.5))"/>
+            <!-- Custom SVG Hero Dashboard Illustration -->
+            <div class="hero-visual reveal" style="transition-delay: 300ms;" aria-hidden="true">
+                <div class="hero-svg-container">
+                    <svg viewBox="0 0 800 400" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+                        <title>Abstract Dashboard Illustration</title>
+                        <rect x="20" y="20" width="760" height="360" rx="20" fill="rgba(255,255,255,0.6)" stroke="#E4E4E7" stroke-width="2" style="backdrop-filter: blur(20px);"/>
+                        <rect x="20" y="20" width="760" height="40" rx="20" fill="#F4F4F5"/>
+                        <rect x="20" y="40" width="760" height="20" fill="#F4F4F5"/>
+                        <circle cx="50" cy="40" r="6" fill="#D4D4D8"/><circle cx="70" cy="40" r="6" fill="#D4D4D8"/><circle cx="90" cy="40" r="6" fill="#D4D4D8"/>
+                        <rect x="60" y="90" width="200" height="250" rx="12" fill="#FFFFFF" stroke="#E4E4E7" stroke-width="1"/>
+                        <rect x="80" y="110" width="160" height="12" rx="6" fill="#E4E4E7"/>
+                        <rect x="80" y="135" width="100" height="8" rx="4" fill="#F4F4F5"/>
+                        <rect x="80" y="155" width="120" height="8" rx="4" fill="#F4F4F5"/>
+                        <circle cx="160" cy="240" r="50" stroke="url(#hero-gradient)" stroke-width="12" stroke-linecap="round" fill="none" stroke-dasharray="250" stroke-dashoffset="50"/>
+                        <rect x="290" y="90" width="450" height="140" rx="12" fill="#FFFFFF" stroke="#E4E4E7" stroke-width="1"/>
+                        <path d="M 310 190 Q 350 120 400 170 T 500 140 T 600 160 T 700 90" stroke="url(#hero-gradient)" stroke-width="4" fill="none" stroke-linecap="round"/>
+                        <circle cx="700" cy="90" r="6" fill="#7928CA"/>
+                        <rect x="290" y="250" width="215" height="90" rx="12" fill="#FFFFFF" stroke="#E4E4E7" stroke-width="1"/>
+                        <rect x="525" y="250" width="215" height="90" rx="12" fill="#FFFFFF" stroke="#E4E4E7" stroke-width="1"/>
                         <defs>
-                            <linearGradient id="ai-grad" x1="60" y1="60" x2="140" y2="140">
+                            <linearGradient id="hero-gradient" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
                                 <stop stop-color="#0070F3"/><stop offset="1" stop-color="#7928CA"/>
                             </linearGradient>
                         </defs>
                     </svg>
                 </div>
-                <div class="card-content">
-                    <h3>Applied AI Integration</h3>
-                    <p>Automate workflows, deploy custom LLMs, and integrate intelligent functionality into your existing systems.</p>
-                </div>
+            </div>
+        </header>
+
+        <!-- Trust / Logos -->
+        <section class="trust-section reveal" aria-label="Trusted Companies">
+            <div class="trust-text">Powering Next-Gen Infrastructure For</div>
+            <div class="logo-ticker">
+                <span>Nvidia</span>
+                <span>OpenAI</span>
+                <span>Cloudflare</span>
+                <span>Vercel</span>
+                <span>Anthropic</span>
+            </div>
+        </section>
+
+        <!-- Bento Grid Features (SEO H2) -->
+        <section id="features" class="features" aria-labelledby="features-heading">
+            <div class="section-header reveal">
+                <h2 id="features-heading">Enterprise Web, App & AI Capabilities</h2>
+                <p>Everything you need to scale, built with absolute architectural precision.</p>
             </div>
 
-            <!-- Design Card -->
-            <div class="bento-card reveal spotlight-card" style="transition-delay: 300ms;">
-                <div class="svg-visual">
-                    <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M70 70 L130 70 L130 130 Z" fill="#0070F3" opacity="0.1"/>
-                        <path d="M70 70 L70 130 L130 130 Z" fill="#7928CA" opacity="0.1"/>
-                        <rect x="60" y="60" width="80" height="80" rx="8" stroke="#111111" stroke-width="2" stroke-dasharray="4 4"/>
-                        <path d="M120 120 L135 150 L145 145 L130 115 Z" fill="#111"/>
-                        <path d="M120 120 L145 125 L130 135 Z" fill="#111"/>
-                        <circle cx="60" cy="60" r="4" fill="#0070F3"/>
-                        <circle cx="140" cy="60" r="4" fill="#0070F3"/>
-                        <circle cx="60" cy="140" r="4" fill="#0070F3"/>
-                    </svg>
-                </div>
-                <div class="card-content">
-                    <h3>UI/UX Architecture</h3>
-                    <p>Pixel-perfect, conversion-optimized interfaces that command premium brand authority.</p>
-                </div>
-            </div>
+            <div class="bento-grid">
+                
+                <!-- Web Card (SEO H3) -->
+                <article class="bento-card card-wide reveal spotlight-card">
+                    <div class="svg-visual" aria-hidden="true">
+                        <svg viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <title>Web Architecture</title>
+                            <rect x="40" y="30" width="320" height="160" rx="12" fill="#FFFFFF" stroke="#E4E4E7" stroke-width="2" filter="drop-shadow(0 10px 15px rgba(0,0,0,0.05))"/>
+                            <rect x="40" y="30" width="320" height="30" rx="12" fill="#F4F4F5"/>
+                            <rect x="40" y="50" width="320" height="10" fill="#F4F4F5"/>
+                            <circle cx="60" cy="45" r="4" fill="#D4D4D8"/><circle cx="75" cy="45" r="4" fill="#D4D4D8"/><circle cx="90" cy="45" r="4" fill="#D4D4D8"/>
+                            <rect x="60" y="80" width="180" height="16" rx="8" fill="#E4E4E7"/>
+                            <rect x="60" y="110" width="100" height="8" rx="4" fill="#F4F4F5"/>
+                            <rect x="60" y="125" width="140" height="8" rx="4" fill="#F4F4F5"/>
+                            <rect x="60" y="150" width="80" height="24" rx="12" fill="#0070F3" opacity="0.9"/>
+                            <rect x="270" y="80" width="70" height="70" rx="12" fill="#F4F4F5"/>
+                        </svg>
+                    </div>
+                    <div class="card-content">
+                        <h3>High-Performance Web Platforms</h3>
+                        <p>Next.js and React architectures. We build SEO-optimized web applications that deliver sub-second load times and flawless user experiences.</p>
+                    </div>
+                </article>
 
-            <!-- Scalability Card -->
-            <div class="bento-card card-wide reveal spotlight-card" style="transition-delay: 400ms;">
-                <div class="svg-visual">
-                    <svg viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="100" y="40" width="200" height="30" rx="6" fill="#FFFFFF" stroke="#E4E4E7" stroke-width="2" filter="drop-shadow(0 4px 6px rgba(0,0,0,0.02))"/>
-                        <circle cx="120" cy="55" r="4" fill="#10B981"/>
-                        <rect x="140" y="52" width="40" height="6" rx="3" fill="#F4F4F5"/>
-                        
-                        <rect x="100" y="85" width="200" height="30" rx="6" fill="#FFFFFF" stroke="#E4E4E7" stroke-width="2" filter="drop-shadow(0 4px 6px rgba(0,0,0,0.02))"/>
-                        <circle cx="120" cy="100" r="4" fill="#10B981"/>
-                        <rect x="140" y="97" width="60" height="6" rx="3" fill="#F4F4F5"/>
-                        
-                        <rect x="100" y="130" width="200" height="30" rx="6" fill="#FFFFFF" stroke="#E4E4E7" stroke-width="2" filter="drop-shadow(0 4px 6px rgba(0,0,0,0.02))"/>
-                        <circle cx="120" cy="145" r="4" fill="#0070F3" filter="drop-shadow(0 0 4px #0070F3)"/>
-                        <rect x="140" y="142" width="50" height="6" rx="3" fill="#F4F4F5"/>
-                        
-                        <path d="M150 130 L150 115" stroke="#E4E4E7" stroke-width="2" stroke-dasharray="2 2"/>
-                        <path d="M250 85 L250 70" stroke="#E4E4E7" stroke-width="2" stroke-dasharray="2 2"/>
-                    </svg>
-                </div>
-                <div class="card-content">
-                    <h3>Enterprise Cloud Infrastructure</h3>
-                    <p>Rock-solid backend engineering. We architect databases and serverless environments capable of handling millions of requests with zero downtime.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+                <!-- Mobile Card (SEO H3) -->
+                <article class="bento-card reveal spotlight-card" style="transition-delay: 100ms;">
+                    <div class="svg-visual" aria-hidden="true">
+                        <svg viewBox="0 0 200 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <title>Mobile Applications</title>
+                            <rect x="50" y="10" width="100" height="210" rx="20" fill="#FFFFFF" stroke="#111111" stroke-width="6" filter="drop-shadow(0 10px 15px rgba(0,0,0,0.1))"/>
+                            <rect x="85" y="15" width="30" height="6" rx="3" fill="#111111"/>
+                            <rect x="65" y="40" width="70" height="60" rx="10" fill="#F4F4F5"/>
+                            <rect x="65" y="115" width="70" height="20" rx="6" fill="#F4F4F5"/>
+                            <rect x="65" y="145" width="70" height="20" rx="6" fill="#F4F4F5"/>
+                            <circle cx="100" cy="190" r="12" fill="#0070F3" opacity="0.1"/>
+                            <circle cx="100" cy="190" r="4" fill="#0070F3"/>
+                        </svg>
+                    </div>
+                    <div class="card-content">
+                        <h3>Native Mobile Apps</h3>
+                        <p>Fluid iOS and Android experiences designed to retain users and dominate app stores.</p>
+                    </div>
+                </article>
 
-    <!-- Bottom CTA -->
-    <section class="cta-section reveal">
-        <h2>Ready to build something extraordinary?</h2>
-        <p>Join the industry leaders who trust Interclick Media to engineer their digital products.</p>
-        <!-- Anti-Scraping WhatsApp Button -->
-        <a class="btn-primary wa-trigger">Contact Our Studio</a>
-    </section>
+                <!-- AI Card (SEO H3) -->
+                <article class="bento-card reveal spotlight-card" style="transition-delay: 200ms;">
+                    <div class="svg-visual" aria-hidden="true">
+                        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <title>AI Workflows</title>
+                            <path d="M100 60 L140 100 L100 140 L60 100 Z" stroke="url(#ai-grad)" stroke-width="2" stroke-dasharray="5 5" class="ai-path"/>
+                            <line x1="100" y1="20" x2="100" y2="60" stroke="#E4E4E7" stroke-width="2"/>
+                            <line x1="100" y1="140" x2="100" y2="180" stroke="#E4E4E7" stroke-width="2"/>
+                            <line x1="20" y1="100" x2="60" y2="100" stroke="#E4E4E7" stroke-width="2"/>
+                            <line x1="140" y1="100" x2="180" y2="100" stroke="#E4E4E7" stroke-width="2"/>
+                            <circle cx="100" cy="60" r="6" fill="#0070F3"/>
+                            <circle cx="140" cy="100" r="6" fill="#7928CA"/>
+                            <circle cx="100" cy="140" r="6" fill="#0070F3"/>
+                            <circle cx="60" cy="100" r="6" fill="#7928CA"/>
+                            <circle cx="100" cy="100" r="24" fill="rgba(121, 40, 202, 0.1)" stroke="#7928CA" stroke-width="1"/>
+                            <circle cx="100" cy="100" r="10" fill="url(#ai-grad)" filter="drop-shadow(0 0 8px rgba(121, 40, 202, 0.5))"/>
+                            <defs>
+                                <linearGradient id="ai-grad" x1="60" y1="60" x2="140" y2="140">
+                                    <stop stop-color="#0070F3"/><stop offset="1" stop-color="#7928CA"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div class="card-content">
+                        <h3>Applied AI Integration</h3>
+                        <p>Automate workflows, deploy custom LLMs, and integrate intelligent functionality into your existing systems.</p>
+                    </div>
+                </article>
+
+                <!-- Design Card (SEO H3) -->
+                <article class="bento-card reveal spotlight-card" style="transition-delay: 300ms;">
+                    <div class="svg-visual" aria-hidden="true">
+                        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <title>UI/UX Design</title>
+                            <path d="M70 70 L130 70 L130 130 Z" fill="#0070F3" opacity="0.1"/>
+                            <path d="M70 70 L70 130 L130 130 Z" fill="#7928CA" opacity="0.1"/>
+                            <rect x="60" y="60" width="80" height="80" rx="8" stroke="#111111" stroke-width="2" stroke-dasharray="4 4"/>
+                            <path d="M120 120 L135 150 L145 145 L130 115 Z" fill="#111"/>
+                            <path d="M120 120 L145 125 L130 135 Z" fill="#111"/>
+                            <circle cx="60" cy="60" r="4" fill="#0070F3"/>
+                            <circle cx="140" cy="60" r="4" fill="#0070F3"/>
+                            <circle cx="60" cy="140" r="4" fill="#0070F3"/>
+                        </svg>
+                    </div>
+                    <div class="card-content">
+                        <h3>UI/UX Architecture</h3>
+                        <p>Pixel-perfect, conversion-optimized interfaces that command premium brand authority.</p>
+                    </div>
+                </article>
+
+                <!-- Scalability Card (SEO H3) -->
+                <article class="bento-card card-wide reveal spotlight-card" style="transition-delay: 400ms;">
+                    <div class="svg-visual" aria-hidden="true">
+                        <svg viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <title>Cloud Infrastructure</title>
+                            <rect x="100" y="40" width="200" height="30" rx="6" fill="#FFFFFF" stroke="#E4E4E7" stroke-width="2" filter="drop-shadow(0 4px 6px rgba(0,0,0,0.02))"/>
+                            <circle cx="120" cy="55" r="4" fill="#10B981"/>
+                            <rect x="140" y="52" width="40" height="6" rx="3" fill="#F4F4F5"/>
+                            
+                            <rect x="100" y="85" width="200" height="30" rx="6" fill="#FFFFFF" stroke="#E4E4E7" stroke-width="2" filter="drop-shadow(0 4px 6px rgba(0,0,0,0.02))"/>
+                            <circle cx="120" cy="100" r="4" fill="#10B981"/>
+                            <rect x="140" y="97" width="60" height="6" rx="3" fill="#F4F4F5"/>
+                            
+                            <rect x="100" y="130" width="200" height="30" rx="6" fill="#FFFFFF" stroke="#E4E4E7" stroke-width="2" filter="drop-shadow(0 4px 6px rgba(0,0,0,0.02))"/>
+                            <circle cx="120" cy="145" r="4" fill="#0070F3" filter="drop-shadow(0 0 4px #0070F3)"/>
+                            <rect x="140" y="142" width="50" height="6" rx="3" fill="#F4F4F5"/>
+                            
+                            <path d="M150 130 L150 115" stroke="#E4E4E7" stroke-width="2" stroke-dasharray="2 2"/>
+                            <path d="M250 85 L250 70" stroke="#E4E4E7" stroke-width="2" stroke-dasharray="2 2"/>
+                        </svg>
+                    </div>
+                    <div class="card-content">
+                        <h3>Enterprise Cloud Infrastructure</h3>
+                        <p>Rock-solid backend engineering. We architect databases and serverless environments capable of handling millions of requests with zero downtime.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Bottom CTA -->
+        <section class="cta-section reveal" aria-labelledby="cta-heading">
+            <h2 id="cta-heading">Ready to build something extraordinary?</h2>
+            <p>Join the industry leaders who trust Interclick Media to engineer their digital products.</p>
+            <!-- Anti-Scraping WhatsApp Button -->
+            <a class="btn-primary wa-trigger" role="button" aria-label="Contact Our Studio via WhatsApp">Contact Our Studio</a>
+        </section>
+    </main>
 
     <!-- Footer -->
-    <footer>
+    <footer aria-label="Site Footer">
         <div class="footer-company">
             <strong>Interclick Media Pte. Ltd.</strong>
             <span>UEN: 201412591G &nbsp;|&nbsp; Kaki Bukit Road 1, Singapore 415934</span>
@@ -508,10 +564,10 @@
         </div>
         
         <div class="footer-meta">
-            <div class="footer-links">
-                <a href="#privacy">Privacy Policy</a>
-                <a href="#terms">Terms of Service</a>
-            </div>
+            <nav class="footer-links" aria-label="Legal Links">
+                <a href="#privacy" aria-label="Read our Privacy Policy">Privacy Policy</a>
+                <a href="#terms" aria-label="Read our Terms of Service">Terms of Service</a>
+            </nav>
         </div>
     </footer>
 
