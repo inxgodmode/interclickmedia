@@ -1,203 +1,579 @@
-<html><head><base href="https://interclickmedia.com/">
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interclick Media - Global Premier App & Mobile Game Agency</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@radix-ui/colors@latest/blackA.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@radix-ui/colors@latest/mauve.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@radix-ui/colors@latest/violet.css">
-    <script src="https://cdn.jsdelivr.net/npm/@radix-ui/react-icons@1.3.0/dist/react-icons.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Interclick Media | Premium Web, App & AI Studio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        body {
-            background-color: #0F172A;
-            color: #F1F5F9;
+        :root {
+            --bg-color: #FAFAFA;
+            --surface: #FFFFFF;
+            --text-primary: #111111;
+            --text-secondary: #666666;
+            --border-color: rgba(0, 0, 0, 0.06);
+            --accent: #0070F3; 
+            --accent-glow: rgba(0, 112, 243, 0.15);
+            --gradient-1: #0070F3;
+            --gradient-2: #7928CA;
         }
-        .logo-text {
-            font-family: 'Arial', sans-serif;
-            font-weight: bold;
-            background: linear-gradient(45deg, #6366F1, #D946EF);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-fill-color: transparent;
+
+        * {
+            margin: 0; padding: 0; box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            line-height: 1.5;
+            width: 100%;
+        }
+
+        /* --- Ambient Background --- */
+        .ambient-bg {
+            position: fixed; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(circle at 50% 50%, rgba(0, 112, 243, 0.03) 0%, transparent 40%),
+                        radial-gradient(circle at 80% 20%, rgba(121, 40, 202, 0.03) 0%, transparent 30%);
+            z-index: -1; pointer-events: none;
+        }
+
+        /* --- Floating Glass Navigation --- */
+        nav {
+            position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+            width: 90%; max-width: 1000px; height: 60px;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.8);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04), inset 0 0 0 1px var(--border-color);
+            border-radius: 100px;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0 1.5rem 0 2rem; z-index: 100;
+            transition: all 0.3s ease;
+        }
+
+        .logo { font-weight: 700; font-size: 1.1rem; letter-spacing: -0.5px; white-space: nowrap; }
+        .nav-links { display: flex; gap: 2.5rem; }
+        .nav-links a {
+            text-decoration: none; color: var(--text-secondary);
+            font-size: 0.9rem; font-weight: 500; transition: color 0.2s;
+        }
+        
+        .btn-nav {
+            background: var(--text-primary); color: white !important;
+            padding: 0.6rem 1.2rem; border-radius: 100px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer; text-decoration: none;
+            font-size: 0.9rem; font-weight: 500; white-space: nowrap;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            padding: clamp(8rem, 15vh, 12rem) 1.5rem 4rem;
+            text-align: center;
+            display: flex; flex-direction: column; align-items: center;
+            position: relative;
+            width: 100%;
+        }
+
+        .badge {
+            background: rgba(0,0,0,0.03); border: 1px solid var(--border-color);
+            padding: 0.4rem 1rem; border-radius: 100px;
+            font-size: clamp(0.75rem, 2vw, 0.85rem); font-weight: 500; color: var(--text-secondary);
+            margin-bottom: 2rem; display: inline-flex; align-items: center; gap: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+        .badge::before {
+            content: ''; width: 8px; height: 8px; background: var(--accent);
+            border-radius: 50%; box-shadow: 0 0 8px var(--accent-glow);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(0, 112, 243, 0.4); }
+            70% { box-shadow: 0 0 0 6px rgba(0, 112, 243, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 112, 243, 0); }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 6rem);
+            font-weight: 800; letter-spacing: -0.04em;
+            line-height: 1.05; margin-bottom: 1.5rem;
+            max-width: 900px;
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, var(--gradient-1) 0%, var(--gradient-2) 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 3vw, 1.25rem); color: var(--text-secondary);
+            max-width: 650px; margin-bottom: 3rem; line-height: 1.6;
+            padding: 0 1rem;
+        }
+
+        /* --- 3D Hero Visual --- */
+        .hero-visual {
+            position: relative; width: 100%; max-width: 900px; height: clamp(200px, 40vw, 450px);
+            margin-top: 1rem; perspective: 1200px; display: flex; justify-content: center; align-items: center;
+        }
+
+        .hero-svg-container {
+            width: 90%; height: 100%; max-height: 400px;
+            transform: rotateX(10deg) rotateY(-5deg);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            filter: drop-shadow(0 30px 50px rgba(0,0,0,0.05));
+        }
+
+        /* --- Logos / Trust Section --- */
+        .trust-section {
+            text-align: center; padding: clamp(3rem, 5vw, 4rem) 1.5rem; 
+            border-top: 1px solid var(--border-color);
+            background: linear-gradient(180deg, rgba(0,0,0,0.01) 0%, transparent 100%);
+        }
+        .trust-text {
+            font-size: 0.85rem; font-weight: 600; color: #888; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 2rem;
+        }
+        .logo-ticker {
+            display: flex; gap: clamp(1.5rem, 5vw, 5rem); justify-content: center; flex-wrap: wrap; 
+            opacity: 0.4; filter: grayscale(100%);
+            font-weight: 800; font-size: clamp(1rem, 3vw, 1.2rem); letter-spacing: -1px;
+        }
+
+        /* --- Bento Grid Section (Features) --- */
+        .features { padding: clamp(4rem, 8vw, 8rem) 1.5rem; max-width: 1200px; margin: 0 auto; }
+
+        .section-header { text-align: center; margin-bottom: clamp(3rem, 6vw, 5rem); }
+        .section-header h2 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; letter-spacing: -0.03em; margin-bottom: 1rem; }
+        .section-header p { color: var(--text-secondary); font-size: clamp(1rem, 2vw, 1.1rem); padding: 0 1rem; }
+
+        .bento-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+            grid-auto-rows: minmax(380px, auto);
+        }
+
+        /* Interactive Spotlight Card */
+        .bento-card {
+            background: var(--surface); border-radius: 24px;
+            padding: clamp(1.5rem, 3vw, 2.5rem); position: relative; overflow: hidden;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 24px rgba(0,0,0,0.02);
+            display: flex; flex-direction: column;
+            cursor: default;
+        }
+
+        .card-wide { grid-column: span 2; }
+        .card-tall { grid-row: span 2; }
+
+        .bento-card::before {
+            content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(800px circle at var(--mouse-x, 0) var(--mouse-y, 0), rgba(0, 112, 243, 0.05), transparent 40%);
+            opacity: 0; transition: opacity 0.5s; z-index: 1; pointer-events: none;
+        }
+
+        .card-content { position: relative; z-index: 2; margin-top: auto; }
+        .bento-card h3 { font-size: clamp(1.2rem, 2.5vw, 1.4rem); font-weight: 600; margin-bottom: 0.5rem; letter-spacing: -0.02em; }
+        .bento-card p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; }
+
+        /* SVG Containers for Bento Cards */
+        .svg-visual {
+            position: relative; z-index: 2; width: 100%; flex-grow: 1;
+            display: flex; justify-content: center; align-items: center;
+            margin-bottom: 2rem; min-height: 150px;
+        }
+        
+        .svg-visual svg {
+            width: 100%; height: 100%; max-height: 200px;
+            object-fit: contain; transition: transform 0.4s ease;
+        }
+
+        /* AI Path Animation */
+        @keyframes dash { to { stroke-dashoffset: -20; } }
+        .ai-path { animation: dash 2s linear infinite; }
+
+        /* --- Bottom CTA Section --- */
+        .cta-section {
+            margin: clamp(2rem, 4vw, 4rem) 1.5rem clamp(2rem, 4vw, 4rem); 
+            background: var(--text-primary); color: white;
+            border-radius: 32px; padding: clamp(4rem, 8vw, 6rem) 1.5rem; text-align: center;
+            position: relative; overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: ''; position: absolute; top: -50%; left: 50%; transform: translateX(-50%);
+            width: 100%; height: 100%; background: radial-gradient(circle, rgba(0, 112, 243, 0.25) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .cta-section h2 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 700; letter-spacing: -0.03em; margin-bottom: 1.5rem; z-index: 2; position: relative; }
+        .cta-section p { color: #A1A1AA; font-size: clamp(1rem, 2vw, 1.1rem); margin-bottom: 3rem; max-width: 500px; margin-left: auto; margin-right: auto; z-index: 2; position: relative;}
+        
+        .btn-primary {
+            background: white; color: black; text-decoration: none;
+            padding: 1rem 2rem; border-radius: 100px; font-weight: 600;
+            font-size: clamp(0.95rem, 2vw, 1.1rem); transition: transform 0.2s;
+            display: inline-block; z-index: 2; position: relative; cursor: pointer;
+            white-space: nowrap;
+        }
+
+        /* --- Footer (Compact & Refined) --- */
+        footer {
+            padding: clamp(2rem, 4vw, 2.5rem) 1.5rem;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-company {
+            display: flex; flex-direction: column; gap: 0.3rem;
+        }
+        .footer-company strong {
+            color: var(--text-primary); font-weight: 600; font-size: 0.95rem; letter-spacing: -0.02em;
+        }
+
+        .footer-meta {
+            display: flex; flex-direction: column; align-items: flex-end; gap: 0.4rem;
+        }
+        .footer-links { display: flex; gap: 1.5rem; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; transition: color 0.2s; }
+
+        /* --- Animations --- */
+        .reveal { opacity: 0; transform: translateY(20px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* --- Desktop Hover Effects Only --- */
+        @media (hover: hover) and (pointer: fine) {
+            .nav-links a:hover { color: var(--text-primary); }
+            .btn-nav:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+            .hero-visual:hover .hero-svg-container { transform: rotateX(0deg) rotateY(0deg) translateY(-10px) scale(1.02); }
+            .bento-card:hover::before { opacity: 1; }
+            .bento-card:hover .svg-visual svg { transform: scale(1.05); }
+            .btn-primary:hover { transform: scale(1.05); }
+            .footer-links a:hover { color: var(--text-primary); }
+        }
+
+        /* --- Mobile Responsiveness --- */
+        @media (max-width: 900px) {
+            .bento-grid { 
+                grid-template-columns: 1fr; 
+                grid-auto-rows: auto; /* Let cards size naturally on mobile */
+            }
+            .bento-card {
+                min-height: 320px; /* Prevent cards from getting too short */
+            }
+            .card-wide, .card-tall { 
+                grid-column: span 1; 
+                grid-row: span 1; 
+            }
+            .nav-links { display: none; }
+            
+            nav {
+                width: 92%; padding: 0 0.8rem 0 1.2rem; height: 55px;
+            }
+            
+            .hero-svg-container {
+                transform: rotateX(0deg) rotateY(0deg); /* Flatten 3D effect on small screens for better fit */
+            }
+
+            footer { 
+                flex-direction: column; 
+                align-items: flex-start; 
+                gap: 1.5rem; 
+            }
+            .footer-meta { 
+                align-items: flex-start; 
+            }
+        }
+        
+        /* For extremely small screens (iPhone SE, Galaxy Fold) */
+        @media (max-width: 380px) {
+            .logo { font-size: 0.9rem; }
+            .btn-nav { padding: 0.5rem 0.8rem; font-size: 0.8rem; }
+            .cta-section { padding: 3rem 1rem; }
         }
     </style>
 </head>
 <body>
-    <nav class="bg-gray-800 bg-opacity-80 backdrop-filter backdrop-blur-lg">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <div class="flex items-center">
-                    <svg class="h-8 w-8 mr-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M2 17L12 22L22 17" stroke="#D946EF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M2 12L12 17L22 12" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <div class="ambient-bg"></div>
+
+    <!-- Glass Navigation -->
+    <nav>
+        <div class="logo">Interclick Media</div>
+        <div class="nav-links">
+            <a href="#features">Platform</a>
+            <a href="#features">Capabilities</a>
+        </div>
+        <!-- Anti-Scraping WhatsApp Button -->
+        <a class="btn-nav wa-trigger">WhatsApp Us</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="badge reveal">Enterprise-Grade Digital Studio</div>
+        <h1 class="reveal" style="transition-delay: 100ms;">
+            Engineering the <span class="text-gradient">Future</span> of Digital.
+        </h1>
+        <p class="reveal" style="transition-delay: 200ms;">
+            We design, architect, and deploy high-performance web platforms, native mobile applications, and intelligent AI workflows for modern enterprises.
+        </p>
+
+        <!-- Custom SVG Hero Dashboard Illustration -->
+        <div class="hero-visual reveal" style="transition-delay: 300ms;">
+            <div class="hero-svg-container">
+                <svg viewBox="0 0 800 400" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+                    <rect x="20" y="20" width="760" height="360" rx="20" fill="rgba(255,255,255,0.6)" stroke="#E4E4E7" stroke-width="2" style="backdrop-filter: blur(20px);"/>
+                    <rect x="20" y="20" width="760" height="40" rx="20" fill="#F4F4F5"/>
+                    <rect x="20" y="40" width="760" height="20" fill="#F4F4F5"/>
+                    <circle cx="50" cy="40" r="6" fill="#D4D4D8"/><circle cx="70" cy="40" r="6" fill="#D4D4D8"/><circle cx="90" cy="40" r="6" fill="#D4D4D8"/>
+                    <rect x="60" y="90" width="200" height="250" rx="12" fill="#FFFFFF" stroke="#E4E4E7" stroke-width="1"/>
+                    <rect x="80" y="110" width="160" height="12" rx="6" fill="#E4E4E7"/>
+                    <rect x="80" y="135" width="100" height="8" rx="4" fill="#F4F4F5"/>
+                    <rect x="80" y="155" width="120" height="8" rx="4" fill="#F4F4F5"/>
+                    <circle cx="160" cy="240" r="50" stroke="url(#hero-gradient)" stroke-width="12" stroke-linecap="round" fill="none" stroke-dasharray="250" stroke-dashoffset="50"/>
+                    <rect x="290" y="90" width="450" height="140" rx="12" fill="#FFFFFF" stroke="#E4E4E7" stroke-width="1"/>
+                    <path d="M 310 190 Q 350 120 400 170 T 500 140 T 600 160 T 700 90" stroke="url(#hero-gradient)" stroke-width="4" fill="none" stroke-linecap="round"/>
+                    <circle cx="700" cy="90" r="6" fill="#7928CA"/>
+                    <rect x="290" y="250" width="215" height="90" rx="12" fill="#FFFFFF" stroke="#E4E4E7" stroke-width="1"/>
+                    <rect x="525" y="250" width="215" height="90" rx="12" fill="#FFFFFF" stroke="#E4E4E7" stroke-width="1"/>
+                    <defs>
+                        <linearGradient id="hero-gradient" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#0070F3"/><stop offset="1" stop-color="#7928CA"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <!-- Trust / Logos -->
+    <section class="trust-section reveal">
+        <div class="trust-text">Powering Next-Gen Infrastructure with our Parnets</div>
+        <div class="logo-ticker">
+            <span>Nvdia</span>
+            <span>Cloudflare</span>
+            <span>Vercel</span>
+            <span>Anthropic</span>
+            <span>OpenAI</span>
+        </div>
+    </section>
+
+    <!-- Bento Grid Features -->
+    <section id="features" class="features">
+        <div class="section-header reveal">
+            <h2>Our Capabilities</h2>
+            <p>Everything you need to scale, built with absolute precision.</p>
+        </div>
+
+        <div class="bento-grid">
+            
+            <!-- Web Card -->
+            <div class="bento-card card-wide reveal spotlight-card">
+                <div class="svg-visual">
+                    <svg viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="40" y="30" width="320" height="160" rx="12" fill="#FFFFFF" stroke="#E4E4E7" stroke-width="2" filter="drop-shadow(0 10px 15px rgba(0,0,0,0.05))"/>
+                        <rect x="40" y="30" width="320" height="30" rx="12" fill="#F4F4F5"/>
+                        <rect x="40" y="50" width="320" height="10" fill="#F4F4F5"/>
+                        <circle cx="60" cy="45" r="4" fill="#D4D4D8"/><circle cx="75" cy="45" r="4" fill="#D4D4D8"/><circle cx="90" cy="45" r="4" fill="#D4D4D8"/>
+                        <rect x="60" y="80" width="180" height="16" rx="8" fill="#E4E4E7"/>
+                        <rect x="60" y="110" width="100" height="8" rx="4" fill="#F4F4F5"/>
+                        <rect x="60" y="125" width="140" height="8" rx="4" fill="#F4F4F5"/>
+                        <rect x="60" y="150" width="80" height="24" rx="12" fill="#0070F3" opacity="0.9"/>
+                        <rect x="270" y="80" width="70" height="70" rx="12" fill="#F4F4F5"/>
                     </svg>
-                    <span class="text-2xl logo-text">Interclick Media</span>
                 </div>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="#home" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
-                        <a href="#services" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Services</a>
-                        <a href="#stats" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Stats</a>
-                        <a href="#clients" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Partners</a>
-                        <a href="tos.html" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Terms of Service</a>
-                        <a href="privacypolicy.html" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Privacy Policy</a>
-                    </div>
+                <div class="card-content">
+                    <h3>High-Performance Web Platforms</h3>
+                    <p>Next.js and React architectures. We build SEO-optimized web applications that deliver sub-second load times and flawless user experiences.</p>
+                </div>
+            </div>
+
+            <!-- Mobile Card -->
+            <div class="bento-card reveal spotlight-card" style="transition-delay: 100ms;">
+                <div class="svg-visual">
+                    <svg viewBox="0 0 200 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="50" y="10" width="100" height="210" rx="20" fill="#FFFFFF" stroke="#111111" stroke-width="6" filter="drop-shadow(0 10px 15px rgba(0,0,0,0.1))"/>
+                        <rect x="85" y="15" width="30" height="6" rx="3" fill="#111111"/>
+                        <rect x="65" y="40" width="70" height="60" rx="10" fill="#F4F4F5"/>
+                        <rect x="65" y="115" width="70" height="20" rx="6" fill="#F4F4F5"/>
+                        <rect x="65" y="145" width="70" height="20" rx="6" fill="#F4F4F5"/>
+                        <circle cx="100" cy="190" r="12" fill="#0070F3" opacity="0.1"/>
+                        <circle cx="100" cy="190" r="4" fill="#0070F3"/>
+                    </svg>
+                </div>
+                <div class="card-content">
+                    <h3>Native Mobile Apps</h3>
+                    <p>Fluid iOS and Android experiences designed to retain users and dominate app stores.</p>
+                </div>
+            </div>
+
+            <!-- AI Card -->
+            <div class="bento-card reveal spotlight-card" style="transition-delay: 200ms;">
+                <div class="svg-visual">
+                    <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M100 60 L140 100 L100 140 L60 100 Z" stroke="url(#ai-grad)" stroke-width="2" stroke-dasharray="5 5" class="ai-path"/>
+                        <line x1="100" y1="20" x2="100" y2="60" stroke="#E4E4E7" stroke-width="2"/>
+                        <line x1="100" y1="140" x2="100" y2="180" stroke="#E4E4E7" stroke-width="2"/>
+                        <line x1="20" y1="100" x2="60" y2="100" stroke="#E4E4E7" stroke-width="2"/>
+                        <line x1="140" y1="100" x2="180" y2="100" stroke="#E4E4E7" stroke-width="2"/>
+                        <circle cx="100" cy="60" r="6" fill="#0070F3"/>
+                        <circle cx="140" cy="100" r="6" fill="#7928CA"/>
+                        <circle cx="100" cy="140" r="6" fill="#0070F3"/>
+                        <circle cx="60" cy="100" r="6" fill="#7928CA"/>
+                        <circle cx="100" cy="100" r="24" fill="rgba(121, 40, 202, 0.1)" stroke="#7928CA" stroke-width="1"/>
+                        <circle cx="100" cy="100" r="10" fill="url(#ai-grad)" filter="drop-shadow(0 0 8px rgba(121, 40, 202, 0.5))"/>
+                        <defs>
+                            <linearGradient id="ai-grad" x1="60" y1="60" x2="140" y2="140">
+                                <stop stop-color="#0070F3"/><stop offset="1" stop-color="#7928CA"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <div class="card-content">
+                    <h3>Applied AI Integration</h3>
+                    <p>Automate workflows, deploy custom LLMs, and integrate intelligent functionality into your existing systems.</p>
+                </div>
+            </div>
+
+            <!-- Design Card -->
+            <div class="bento-card reveal spotlight-card" style="transition-delay: 300ms;">
+                <div class="svg-visual">
+                    <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M70 70 L130 70 L130 130 Z" fill="#0070F3" opacity="0.1"/>
+                        <path d="M70 70 L70 130 L130 130 Z" fill="#7928CA" opacity="0.1"/>
+                        <rect x="60" y="60" width="80" height="80" rx="8" stroke="#111111" stroke-width="2" stroke-dasharray="4 4"/>
+                        <path d="M120 120 L135 150 L145 145 L130 115 Z" fill="#111"/>
+                        <path d="M120 120 L145 125 L130 135 Z" fill="#111"/>
+                        <circle cx="60" cy="60" r="4" fill="#0070F3"/>
+                        <circle cx="140" cy="60" r="4" fill="#0070F3"/>
+                        <circle cx="60" cy="140" r="4" fill="#0070F3"/>
+                    </svg>
+                </div>
+                <div class="card-content">
+                    <h3>UI/UX Architecture</h3>
+                    <p>Pixel-perfect, conversion-optimized interfaces that command premium brand authority.</p>
+                </div>
+            </div>
+
+            <!-- Scalability Card -->
+            <div class="bento-card card-wide reveal spotlight-card" style="transition-delay: 400ms;">
+                <div class="svg-visual">
+                    <svg viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="100" y="40" width="200" height="30" rx="6" fill="#FFFFFF" stroke="#E4E4E7" stroke-width="2" filter="drop-shadow(0 4px 6px rgba(0,0,0,0.02))"/>
+                        <circle cx="120" cy="55" r="4" fill="#10B981"/>
+                        <rect x="140" y="52" width="40" height="6" rx="3" fill="#F4F4F5"/>
+                        
+                        <rect x="100" y="85" width="200" height="30" rx="6" fill="#FFFFFF" stroke="#E4E4E7" stroke-width="2" filter="drop-shadow(0 4px 6px rgba(0,0,0,0.02))"/>
+                        <circle cx="120" cy="100" r="4" fill="#10B981"/>
+                        <rect x="140" y="97" width="60" height="6" rx="3" fill="#F4F4F5"/>
+                        
+                        <rect x="100" y="130" width="200" height="30" rx="6" fill="#FFFFFF" stroke="#E4E4E7" stroke-width="2" filter="drop-shadow(0 4px 6px rgba(0,0,0,0.02))"/>
+                        <circle cx="120" cy="145" r="4" fill="#0070F3" filter="drop-shadow(0 0 4px #0070F3)"/>
+                        <rect x="140" y="142" width="50" height="6" rx="3" fill="#F4F4F5"/>
+                        
+                        <path d="M150 130 L150 115" stroke="#E4E4E7" stroke-width="2" stroke-dasharray="2 2"/>
+                        <path d="M250 85 L250 70" stroke="#E4E4E7" stroke-width="2" stroke-dasharray="2 2"/>
+                    </svg>
+                </div>
+                <div class="card-content">
+                    <h3>Enterprise Cloud Infrastructure</h3>
+                    <p>Rock-solid backend engineering. We architect databases and serverless environments capable of handling millions of requests with zero downtime.</p>
                 </div>
             </div>
         </div>
-    </nav>
+    </section>
 
-    <main>
-        <section id="home" class="relative bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 py-32">
-            <div id="particles-js" class="absolute inset-0"></div>
-            <div class="container mx-auto text-center relative z-10">
-                <h1 class="text-5xl font-bold text-white mb-4">Revolutionizing Digital Experiences Globally</h1>
-                <p class="text-xl text-white mb-8">Empowering brands with cutting-edge mobile apps and games</p>
-                <button id="openModal" class="bg-white text-purple-600 font-bold py-3 px-6 rounded-full shadow-lg hover:bg-purple-100 transition duration-300">Get a Free Consultation</button>
-            </div>
-        </section>
+    <!-- Bottom CTA -->
+    <section class="cta-section reveal">
+        <h2>Ready to build something extraordinary?</h2>
+        <p>Join the industry leaders who trust Interclick Media to engineer their digital products.</p>
+        <!-- Anti-Scraping WhatsApp Button -->
+        <a class="btn-primary wa-trigger">Contact Our Studio</a>
+    </section>
 
-        <section id="services" class="bg-gray-900 py-16">
-            <div class="container mx-auto">
-                <h2 class="text-3xl font-bold text-white mb-8 text-center">Our Tech-Driven Services</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <div class="bg-gray-800 rounded-lg p-6 shadow-lg hover:shadow-xl transition duration-300">
-                        <h3 class="text-xl font-semibold text-white mb-4">Mobile App Development</h3>
-                        <p class="text-gray-300">Create stunning, user-friendly apps for iOS and Android platforms</p>
-                    </div>
-                    <div class="bg-gray-800 rounded-lg p-6 shadow-lg hover:shadow-xl transition duration-300">
-                        <h3 class="text-xl font-semibold text-white mb-4">Game Design & Development</h3>
-                        <p class="text-gray-300">Craft engaging mobile games with captivating storylines and mechanics</p>
-                    </div>
-                    <div class="bg-gray-800 rounded-lg p-6 shadow-lg hover:shadow-xl transition duration-300">
-                        <h3 class="text-xl font-semibold text-white mb-4">AR/VR Experiences</h3>
-                        <p class="text-gray-300">Develop immersive augmented and virtual reality applications</p>
-                    </div>
-                    <div class="bg-gray-800 rounded-lg p-6 shadow-lg hover:shadow-xl transition duration-300">
-                        <h3 class="text-xl font-semibold text-white mb-4">UI/UX Design</h3>
-                        <p class="text-gray-300">Design intuitive and visually appealing interfaces for optimal user experience</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="stats" class="bg-gray-800 py-16">
-            <div class="container mx-auto">
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-                    <div class="text-center">
-                        <h3 class="text-4xl font-bold text-purple-400 mb-2">100+</h3>
-                        <p class="text-white">Apps Launched</p>
-                    </div>
-                    <div class="text-center">
-                        <h3 class="text-4xl font-bold text-purple-400 mb-2">50+</h3>
-                        <p class="text-white">Mobile Games Published</p>
-                    </div>
-                    <div class="text-center">
-                        <h3 class="text-4xl font-bold text-purple-400 mb-2">10M+</h3>
-                        <p class="text-white">Total App Downloads</p>
-                    </div>
-                    <div class="text-center">
-                        <h3 class="text-4xl font-bold text-purple-400 mb-2">20+</h3>
-                        <p class="text-white">Countries Served</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="clients" class="bg-gray-900 py-16">
-            <div class="container mx-auto">
-                <h2 class="text-3xl font-bold text-white mb-12 text-center">Partnered with Leading Ad Networks</h2>
-                <div class="flex flex-wrap justify-center items-center gap-12">
-                    <!-- Admob Logo -->
-                    <svg class="w-40 h-20 text-white hover:text-purple-400 transition-colors duration-300" viewBox="0 0 200 60" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M37.5 16.67h-15v26.66h15V16.67zm-7.5 20h-3.33v-13.33h3.33V36.67zm26.67-20h-15v26.66h15V16.67zm-7.5 20h-3.33v-13.33h3.33V36.67zm26.66-20h-15v26.66h15V16.67zm-7.5 20h-3.33v-13.33h3.33V36.67zm26.67-20h-15v26.66h15V16.67zm-7.5 20h-3.33v-13.33h3.33V36.67z"/>
-                    </svg>
-                    <!-- Revenuecat Logo -->
-                    <svg class="w-40 h-20 text-white hover:text-purple-400 transition-colors duration-300" viewBox="0 0 200 60" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M40 15c-8.28 0-15 6.72-15 15s6.72 15 15 15 15-6.72 15-15-6.72-15-15-15zm0 22.5c-4.14 0-7.5-3.36-7.5-7.5s3.36-7.5 7.5-7.5 7.5 3.36 7.5 7.5-3.36 7.5-7.5 7.5zm30-22.5h-7.5v30h7.5V15zm15 0h-7.5v30h7.5V15zm30 0h-22.5v30H115V15zm-7.5 22.5h-7.5v-15h7.5v15z"/>
-                    </svg>
-                    <!-- Amazon Logo -->
-                    <svg class="w-40 h-20 text-white hover:text-purple-400 transition-colors duration-300" viewBox="0 0 200 60" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M86.14 43.66c-7.28 5.4-17.82 8.28-26.9 8.28-12.74 0-24.2-4.72-32.88-12.58-.68-.62-.07-1.46.74-.98 9.3 5.4 20.76 8.66 32.62 8.66 8 0 16.78-1.66 24.86-5.1 1.22-.52 2.24.8 1.56 1.72zm3-3.44c-.93-1.2-6.16-.56-8.5-.28-.72.08-.83-.54-.18-.98 4.16-2.92 11-2.08 11.8-1.1.8.98-.22 7.8-4.1 11.04-.6.5-1.17.24-.9-.42.88-2.2 2.84-7.1 1.88-8.26z"/>
-                        <path d="M84.62 13.36v-2.66c0-.4.3-.67.67-.67h11.84c.38 0 .68.27.68.67v2.28c0 .38-.32.88-.9 1.68l-6.14 8.78c2.28-.06 4.7.28 6.78 1.44.46.26.59.64.62 1.02v2.84c0 .38-.42.82-.86.6-3.6-1.88-8.38-2.1-12.34.02-.4.22-.82-.22-.82-.6v-2.7c0-.42 0-1.14.43-1.78l7.1-10.18h-6.18c-.38 0-.68-.26-.68-.66zm-40.26 16.8h-3.6c-.34-.02-.62-.28-.64-.62V13.16c0-.36.3-.66.68-.66h3.36c.34.02.62.28.64.62v2.18h.06c.88-2.34 2.54-3.44 4.78-3.44 2.26 0 3.68 1.1 4.7 3.44.88-2.34 2.88-3.44 5.02-3.44 1.52 0 3.18.62 4.2 2.04 1.14 1.56.92 3.84.92 5.82v11.72c0 .36-.32.66-.68.66h-3.58c-.36-.02-.64-.32-.64-.66V21.9c0-.78.06-2.74-.1-3.48-.26-1.24-1.06-1.6-2.1-1.6-.86 0-1.76.58-2.14 1.5-.36.94-.34 2.5-.34 3.58v8.6c0 .36-.32.66-.68.66h-3.6c-.36-.02-.64-.32-.64-.66v-8.6c0-2.08.34-5.12-2.22-5.12-2.6 0-2.5 2.96-2.5 5.12v8.6c0 .36-.3.66-.68.66zm67.45-20.54c5.32 0 8.2 4.58 8.2 10.4 0 5.62-3.18 10.08-8.2 10.08-5.22 0-8.08-4.58-8.08-10.28 0-5.74 2.88-10.2 8.08-10.2zm.02 3.76c-2.64 0-2.8 3.6-2.8 5.84 0 2.24-.04 7.04 2.78 7.04 2.78 0 2.92-3.88 2.92-6.24 0-1.56-.06-3.42-.54-4.9-.4-1.28-1.2-1.74-2.36-1.74zm15.2 16.78h-3.58c-.34-.02-.64-.32-.64-.66V13.1c.02-.34.32-.62.68-.62h3.34c.32.02.58.24.64.54v2.58h.06c1.02-2.54 2.44-3.74 4.94-3.74 1.62 0 3.22.58 4.24 2.2.94 1.5.94 4.02.94 5.84v11.82c-.04.34-.34.6-.68.6h-3.62c-.34-.02-.62-.28-.64-.6V21.7c0-2.06.24-5.08-2.3-5.08-.88 0-1.72.6-2.14 1.52-.52 1.14-.58 2.28-.58 3.56v8.86c-.02.36-.34.66-.7.66zm-45.38-.2c-.24.22-.58.24-.84.08-1.18-.98-1.4-1.44-2.04-2.36-1.96 2-3.34 2.58-5.88 2.58-3 0-5.34-1.86-5.34-5.56 0-2.9 1.56-4.86 3.8-5.82 1.94-.86 4.64-1.02 6.7-1.24v-.46c0-.86.08-1.86-.44-2.6-.44-.66-1.28-.92-2.02-.92-1.36 0-2.58.7-2.88 2.16-.06.32-.3.64-.62.66l-3.46-.38c-.3-.06-.62-.28-.54-.7.8-4.26 4.64-5.54 8.08-5.54 1.76 0 4.06.46 5.44 1.8 1.76 1.64 1.6 3.82 1.6 6.2v5.62c0 1.7.7 2.44 1.36 3.34.24.32.28.7 0 .88-.74.6-2.02 1.74-2.74 2.36l-.02-.02zm-3.6-8.72c0 1.38.04 2.54-.66 3.78-.56.98-1.44 1.58-2.44 1.58-1.34 0-2.14-1.02-2.14-2.54 0-3 2.68-3.54 5.24-3.54v.72zm-42.82 8.72c-.24.22-.58.24-.84.08-1.18-.98-1.4-1.44-2.04-2.36-1.96 2-3.34 2.58-5.88 2.58-3 0-5.34-1.86-5.34-5.56 0-2.9 1.56-4.86 3.8-5.82 1.94-.86 4.64-1.02 6.7-1.24v-.46c0-.86.08-1.86-.44-2.6-.44-.66-1.28-.92-2.02-.92-1.36 0-2.58.7-2.88 2.16-.06.32-.3.64-.62.66l-3.46-.38c-.3-.06-.62-.28-.54-.7.8-4.26 4.64-5.54 8.08-5.54 1.76 0 4.06.46 5.44 1.8 1.76 1.64 1.6 3.82 1.6 6.2v5.62c0 1.7.7 2.44 1.36 3.34.24.32.28.7 0 .88-.74.6-2.02 1.74-2.74 2.36l-.02-.02zm-3.6-8.72c0 1.38.04 2.54-.66 3.78-.56.98-1.44 1.58-2.44 1.58-1.34 0-2.14-1.02-2.14-2.54 0-3 2.68-3.54 5.24-3.54v.72z"/>
-                    </svg>
-                    <!-- Unity Logo -->
-                    <svg class="w-40 h-20 text-white hover:text-purple-400 transition-colors duration-300" viewBox="0 0 200 60" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M39.5 15L24.5 30l15 15 3.75-3.75L31.5 30l11.75-11.25L39.5 15zm21 0l-3.75 3.75L68.5 30 56.75 41.25 60.5 45l15-15-15-15zm-10.5 3l-12 24h4.5l2.25-4.5h10.5l2.25 4.5h4.5l-12-24zm0 6.75L53.75 33.5h-7.5l3.75-8.75z"/>
-                    </svg>
-                </div>
-            </div>
-        </section>
-    </main>
-
+    <!-- Footer -->
     <footer>
-        <div class="container mx-auto px-4 py-4">
-            <p class="text-center text-white">&copy; 2023 Interclick Media - Global Premier App & Mobile Game Agency. All rights reserved.</p>
+        <div class="footer-company">
+            <strong>Interclick Media Pte. Ltd.</strong>
+            <span>UEN: 201412591G &nbsp;|&nbsp; Kaki Bukit Road 1, Singapore 415934</span>
+            <span>&copy; 2026 Interclick Media. All rights reserved.</span>
+        </div>
+        
+        <div class="footer-meta">
+            <div class="footer-links">
+                <a href="#privacy">Privacy Policy</a>
+                <a href="#terms">Terms of Service</a>
+            </div>
         </div>
     </footer>
 
-    <div id="consultationModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center">
-        <div class="bg-white rounded-lg p-8 max-w-md w-full">
-            <div class="flex justify-between items-center mb-4">
-                <h2 class="text-2xl font-bold">Get a Free Consultation</h2>
-                <button class="text-gray-500 hover:text-gray-700" id="closeModal">&times;</button>
-            </div>
-            <form id="consultationForm" class="space-y-4">
-                <input type="text" name="name" placeholder="Your Name" required class="w-full px-4 py-2 border rounded-md">
-                <input type="tel" name="phone" placeholder="Phone Number" required class="w-full px-4 py-2 border rounded-md">
-                <input type="email" name="email" placeholder="Email Address" required class="w-full px-4 py-2 border rounded-md">
-                <button type="submit" class="w-full bg-purple-600 text-white font-bold py-2 px-4 rounded-md hover:bg-purple-700 transition duration-300">Submit</button>
-            </form>
-        </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+    <!-- Scripts -->
     <script>
-        particlesJS('particles-js', {
-            particles: {
-                number: { value: 80, density: { enable: true, value_area: 800 } },
-                color: { value: "#ffffff" },
-                shape: { type: "circle" },
-                opacity: { value: 0.5, random: false },
-                size: { value: 3, random: true },
-                line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.4, width: 1 },
-                move: { enable: true, speed: 6, direction: "none", random: false, straight: false, out_mode: "out", bounce: false }
-            },
-            interactivity: {
-                detect_on: "canvas",
-                events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" }, resize: true },
-                modes: { repulse: { distance: 100, duration: 0.4 }, push: { particles_nb: 4 } }
-            },
-            retina_detect: true
+        // Scroll Reveal Animation
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+        // Interactive Spotlight on Bento Cards (Only runs if user has a mouse)
+        if (window.matchMedia("(pointer: fine)").matches) {
+            document.querySelectorAll('.spotlight-card').forEach(card => {
+                card.addEventListener('mousemove', e => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    card.style.setProperty('--mouse-x', `${x}px`);
+                    card.style.setProperty('--mouse-y', `${y}px`);
+                });
+            });
+        }
+
+        // Anti-Scraping WhatsApp Click-to-Chat function
+        document.querySelectorAll('.wa-trigger').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Base64 encoded phone number (Example: 6591234567)
+                // NOTE: Change "NjU5MTIzNDU2Nw==" to your actual base64 encoded number.
+                const encodedPhone = "NjU5MTIzNDU2Nw=="; 
+                
+                // Decode the phone number when a real human clicks
+                const phoneNumber = atob(encodedPhone); 
+                
+                // Pre-filled message
+                const message = encodeURIComponent("Hi Interclick Media, I'm interested in discussing a project.");
+                
+                // Open WhatsApp
+                window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+            });
         });
 
-        const modal = document.getElementById('consultationModal');
-        const openModalBtn = document.getElementById('openModal');
-        const closeModalBtn = document.getElementById('closeModal');
-        const form = document.getElementById('consultationForm');
-
-        openModalBtn.onclick = () => modal.classList.remove('hidden');
-        closeModalBtn.onclick = () => modal.classList.add('hidden');
-        modal.onclick = (event) => {
-            if (event.target === modal) {
-                modal.classList.add('hidden');
-            }
-        };
-
-        form.onsubmit = (e) => {
-            e.preventDefault();
-            const formData = new FormData(form);
-            const body = [...formData.entries()]
-                .map(([key, value]) => `${key}: ${value}`)
-                .join('\n');
-
-            window.location.href = `mailto:info@interclickmedia.com?subject=Consultation Request&body=${encodeURIComponent(body)}`;
-            modal.classList.add('hidden');
-        };
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                const targetEl = document.querySelector(targetId);
+                
+                if (targetEl) {
+                    e.preventDefault();
+                    targetEl.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
     </script>
 </body>
 </html>
